@@ -89,7 +89,9 @@ function* fetchRepos({ name }) {
 }
 
 export default function* root() {
-  yield takeEvery(REQUEST_INTRO, fetchIntro);
-  yield takeEvery(REQUEST_USER, fetchUser);
-  yield takeEvery(REQUEST_REPOS, fetchRepos);
+  yield [
+    takeEvery(REQUEST_INTRO, fetchIntro),
+    takeEvery(REQUEST_USER, fetchUser),
+    takeEvery(REQUEST_REPOS, fetchRepos)
+  ];
 }
