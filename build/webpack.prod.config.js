@@ -71,10 +71,12 @@ module.exports = merge.smartStrategy({
           {
             loader: 'css-loader',
             options: {
-              modules: true,
-              minimize: true,
-              camelCase: true,
-              localIdentName: '[name]__[local]--[hash:base64:5]'
+              importLoaders: 1,
+              modules: {
+                mode: 'local',
+                localIdentName: '[name]__[local]--[hash:base64:5]'
+              },
+              localsConvention: 'camelCaseOnly'
             }
           },
           postcssLoader
