@@ -42,7 +42,7 @@ export function createActionTypes(typeMap, namespace = '') {
  *  applyMiddleware(createSagaPromiseMiddleware(), createSagaMiddleware())
  */
 export function createSagaPromiseMiddleware() {
-  return () => next => (action) => {
+  return () => (next) => (action) => {
     if (action.meta && action.meta[ASYNC_ACTION]) {
       return new Promise((resolve, reject) => {
         next({
@@ -82,7 +82,7 @@ function patchMetaCreator(actionMap) {
     let action = actionMap[key];
 
     if (isUndefined(action) || isNull(action)) {
-      action = p => p;
+      action = (p) => p;
     }
 
     if (isFunction(action)) {
@@ -130,7 +130,7 @@ export function createAsyncActions(actionMap, ...identityActions) {
 
     if (isString(identityAction)) {
       actionMap[identityAction] = [
-        payload => payload,
+        (payload) => payload,
         () => ({
           [ASYNC_ACTION]: true
         })

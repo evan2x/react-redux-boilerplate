@@ -37,7 +37,7 @@ class Repositories extends React.Component {
       );
     }
 
-    return repos.map(repo => (
+    return repos.map((repo) => (
       <tr key={repo.id}>
         <td><a href={repo.url}>{repo.name}</a></td>
         <td>{repo.lang}</td>
@@ -71,7 +71,7 @@ export default connect(({ repos }) => ({
   repos: repos.list,
   isFetching: repos.isFetching,
   error: repos.error
-}), dispatch => ({
+}), (dispatch) => ({
   actions: bindActionCreators({
     requestRepos
   }, dispatch)

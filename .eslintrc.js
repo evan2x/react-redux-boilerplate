@@ -28,7 +28,10 @@ module.exports = {
     'react/jsx-one-expression-per-line': OFF,
     'react/jsx-filename-extension': [WARN, { extensions: ['.jsx'] }],
     'react/prop-types': OFF,
-    'react/forbid-prop-types': OFF
+    'react/forbid-prop-types': OFF,
+    'react/static-property-placement': OFF,
+    'react/state-in-constructor': OFF,
+    'react/jsx-props-no-spreading': OFF
   },
   env: {
     node: true,

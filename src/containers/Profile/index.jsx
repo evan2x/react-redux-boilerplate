@@ -37,7 +37,7 @@ export default connect(({ profile }) => ({
   location: profile.location,
   isFetching: profile.isFetching,
   error: profile.error
-}), dispatch => ({
+}), (dispatch) => ({
   actions: bindActionCreators({
     requestUser
   }, dispatch)

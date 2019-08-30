@@ -31,9 +31,9 @@ class Home extends React.Component {
   }
 }
 
-export default connect(state => ({
+export default connect((state) => ({
   intro: state.home.content
-}), dispatch => ({
+}), (dispatch) => ({
   actions: bindActionCreators({
     requestIntro
   }, dispatch)
