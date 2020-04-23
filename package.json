@@ -14,7 +14,7 @@
     "build:vendor": "webpack --config build/webpack.vendor.config.js --hide-modules --display-optimization-bailout",
     "dev": "cross-env NODE_ENV=development npm run build:vendor && webpack-dev-server --config build/webpack.dev.config.js & npm run mock",
     "build": "cross-env NODE_ENV=production npm run build:vendor && npm run build:prod",
-    "lint": "eslint src/**/*.{js,jsx} --fix",
+    "lint": "eslint --fix --ext .js,jsx src/",
     "test": "jest"
   },
   "lint-staged": {

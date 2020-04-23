@@ -11,7 +11,7 @@ export function* fetchRepos({ payload: name, __promise__ }) {
   try {
     let repos = yield call(fetchReposApi, name);
 
-    repos = repos.map(repo => ({
+    repos = repos.map((repo) => ({
       id: repo.id,
       name: repo.name,
       desc: repo.description,

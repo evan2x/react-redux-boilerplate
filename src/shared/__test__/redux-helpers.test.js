@@ -42,18 +42,18 @@ test('createAsyncAction: create an asynchronous action', () => {
     createAction('NOOP')(42)
   ));
 
-  expect(createAsyncAction('NOOP', b => b)(42)).toEqual(attachAsyncMeta(
-    createAction('NOOP', b => b)(42)
+  expect(createAsyncAction('NOOP', (b) => b)(42)).toEqual(attachAsyncMeta(
+    createAction('NOOP', (b) => b)(42)
   ));
 
   expect(createAsyncAction(
     'NOOP',
-    b => b,
+    (b) => b,
     () => ({ admin: true })
   )({ name: 'Foo' })).toEqual(attachAsyncMeta(
     createAsyncAction(
       'NOOP',
-      b => b,
+      (b) => b,
       () => ({ admin: true })
     )({ name: 'Foo' })
   ));
@@ -71,8 +71,8 @@ test('createAsyncActions: creates asynchronous action from an action map and act
   const acitonMap = {
     APP: {
       COUNTER: {
-        INCREMENT: [amount => ({ amount }), amount => ({ key: 'value', amount })],
-        DECREMENT: amount => ({ amount: -amount }),
+        INCREMENT: [(amount) => ({ amount }), (amount) => ({ key: 'value', amount })],
+        DECREMENT: (amount) => ({ amount: -amount }),
         SET: undefined // given undefined, the identity function will be used
       },
       NOTIFY: [
@@ -81,7 +81,7 @@ test('createAsyncActions: creates asynchronous action from an action map and act
       ]
     },
     ADD_TODO: [
-      todo => ({ todo }), // payload creator
+      (todo) => ({ todo }), // payload creator
       (todo, warn) => ({ todo, warn }) // meta
     ]
   };
