@@ -96,8 +96,13 @@ module.exports = merge.smartStrategy({
   optimization: {
     minimizer: [
       new TerserPlugin({
-        cache: true,
-        parallel: true
+        terserOptions: {
+          output: {
+            ascii_only: true,
+            beautify: false
+          },
+          safari10: true
+        }
       }),
       new OptimizeCSSAssetsPlugin()
     ]
